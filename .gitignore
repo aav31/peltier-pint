@@ -1,0 +1,15 @@
+# Ignore ROS2 build directories
+build/
+install/
+log/
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files and editor backups
+*~
+*.swp
+.*.swp
+.#*
+
