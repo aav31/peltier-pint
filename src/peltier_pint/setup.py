@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'temperature_publisher = peltier_pint.temperature_publisher:main',
         ],
     },
 )
