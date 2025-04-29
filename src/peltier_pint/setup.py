@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'temperature_publisher = peltier_pint.temperature_publisher:main',
+            'relay_control_subscriber = peltier_pint.relay_control_subscriber:main'
         ],
     },
 )
