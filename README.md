@@ -31,7 +31,7 @@ Yes, I could’ve just bought a mini fridge or used an ice bucket. But where’s
 ## 📂 Files & Media
 
 - **[temperature_publisher.py](src/peltier_pint/peltier_pint/temperature_publisher.py)** – Reads from the DS18B20 sensor and publishes data to the `/temperature` topic.
-- **[relay_control_sensor.py](src/peltier_pint/peltier_pint/relay_control_sensor.py)** – Subscribes to `/temperature`, then turns the relays on/off depending on whether the reading is within range.
+- **[relay_control_subscriber.py](src/peltier_pint/peltier_pint/relay_control_subscriber.py)** – Subscribes to `/temperature`, then turns the relays on/off depending on whether the reading is within range.
 - **[start_cooler.sh](start_cooler.sh)** – Startup script which: enables 1-Wire support for the temperature sensor, sources the workspace and launches both nodes.
 
 ## ⚠️ Limitations
