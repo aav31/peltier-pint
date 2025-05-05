@@ -8,9 +8,7 @@ Because when you’re holding a perfectly drinkable lager at 10°C, the only rea
 ![cooling-demo.gif](media/cooling-demo.gif)  
 *Above: A surprisingly effective thermodynamic crime in progress.*
 
----
-
-## 🍻 Why I Made This
+## 🧪 Why I Made This
 
 This was my way of doing something *fun and functional* with ROS2, beyond turtlesim and generic tutorials. I wanted to combine hardware control, topic communication, and some real-world feedback.
 
@@ -18,11 +16,9 @@ This is not a production-grade beverage cooler. But it is a project that brought
 
 Yes, I could’ve just bought a mini fridge or used an ice bucket. But where’s the fun in that?
 
----
-
 ## 🧊 The Cooling Strategy
 
-- **Target Temperature**: 6–7°C
+- **Target Temperature**: 5–7°C
 - **Control Method**: Classic *bang-bang* control — if it's too warm, the system turns on the cooling hardware; if it's cold enough, it turns it off.
 - **Hardware**:
   - 4x Peltier modules
@@ -32,30 +28,21 @@ Yes, I could’ve just bought a mini fridge or used an ice bucket. But where’s
   - 1x Raspberry Pi 4
 - **Software**: 2 ROS2 nodes — one publishes the temperature, the other controls the cooling.
 
----
-
 ## 📂 Files & Media
 
-- **[temperature_publisher.py](src/peltier_pint/temperature_publisher.py)** – Reads from the DS18B20 sensor and publishes data to the `/temperature` topic.
-- **[relay_control_sensor.py](src/peltier_pint/relay_control_sensor.py)** – Subscribes to `/temperature`, then turns the relays on/off depending on whether the reading is within range.
+- **[temperature_publisher.py](src/peltier_pint/peltier_pint/temperature_publisher.py)** – Reads from the DS18B20 sensor and publishes data to the `/temperature` topic.
+- **[relay_control_sensor.py](src/peltier_pint/peltier_pint/relay_control_sensor.py)** – Subscribes to `/temperature`, then turns the relays on/off depending on whether the reading is within range.
 - **[start_cooler.sh](start_cooler.sh)** – Startup script which: enables 1-Wire support for the temperature sensor, sources the workspace and launches both nodes.
 
----
+## ⚠️ Limitations
 
-## 🪛 Limitations
-
-- ❄️ Cooling is slow and inefficient. Like... really inefficient. But it *does* work.  
-- ⚡ 250W is arguably too much to cool a single pint. Especially when half of it goes to waste heat.  
-- 🤖 ROS2 and a Raspberry Pi is overkill for this.
-
----
+- ⚡ **Peltier cooling is wildly inefficient** — Most energy turns into heat, not cold.  
+- 🤖 **ROS2 is overkill** — A full robotic middleware stack for toggling relays is unnecessary.
+- 🧯 **No built-in safety features** — No thermal cutoff, current limiting, or fault detection — just vibes and voltage.
 
 ## 📈 Potential Improvements
 
-- Use PID control instead of bang-bang for smoother operation (and fewer relay clicks).  
-- Log temperature over time with `rqt_plot` or a custom node.
-- Add a web dashboard or display to show current status.
-- Make it multi-pint compatible (party mode?).
-- Rebuild in a tidy enclosure and publish proper wiring diagrams.
+- ❄️ **Switch to a more efficient cooling method** — Just use an ice bucket.
+- 🧠 **Replace ROS2 with a microcontroller** — An ESP32 or similar could handle the logic with less power, less latency, and fewer launch files.
+- 🔒 **Add safety and protection features** — Implement thermal cutoffs, current sensing, and watchdog timers to prevent electrical regret.
 
----
