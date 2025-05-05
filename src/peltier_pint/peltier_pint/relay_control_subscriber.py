@@ -12,11 +12,11 @@ class RelayControlSubscriber(Node):
         
     def listener_callback(self, msg):
         temperature = msg.data
-        if temperature > 8.0:
+        if temperature > 7.0:
             self.get_logger().info(f"Temperature: {msg.data}. Switching relay on.")
             self.relay_1.on()
             self.relay_2.on()
-        elif temperature < 6.0:
+        elif temperature < 5.0:
             self.get_logger().info(f"Temperature: {msg.data}. Switching relay off.")
             self.relay_1.off()
             self.relay_2.off()
