@@ -5,7 +5,7 @@ An unnecessarily complicated and wildly inefficient way to chill a pint.
 Because when you’re holding a perfectly drinkable lager at 10°C, the only reasonable next step is to boot up a full ROS2 stack, engage two relays, and fire 250 watts at it until it submits to 6°C perfection.
 
 
-![cooling-demo.gif](media/cooling-demo.gif)  
+![demo.gif](demo.gif)  
 *Above: A surprisingly effective thermodynamic crime in progress.*
 
 ## 🧪 Why I Made This
